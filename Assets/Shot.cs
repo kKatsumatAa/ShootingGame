@@ -18,6 +18,7 @@ public class Shot : MonoBehaviour
     {//ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            //
             Instantiate(Bullet, transform.position, Quaternion.identity);
         }
     }
