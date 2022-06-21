@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 0
+  playerTransform: {fileID: 1880804723}
 --- !u!136 &72619688
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -947,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 0
+  playerTransform: {fileID: 1880804723}
 --- !u!136 &1358443133
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1074,6 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 0
+  playerTransform: {fileID: 1880804723}
 --- !u!136 &1478215369
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1267,6 +1270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 0
+  playerTransform: {fileID: 1880804723}
 --- !u!136 &1695366625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1506,6 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 0
+  playerTransform: {fileID: 1880804723}
 --- !u!136 &1917703094
 CapsuleCollider:
   m_ObjectHideFlags: 0

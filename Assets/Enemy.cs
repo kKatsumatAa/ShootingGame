@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public int enemyHp;
     float moveCool = 0;
     Vector3 move = new Vector3(0,0,0);
+    public Transform playerTransform;
+    private Vector3 homingVec=new Vector3(0,0,0);
+    private float moveSpeed = 0.005f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +20,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        moveCool += Time.deltaTime;
-        if (moveCool >= 0.2f)
-        {
-            moveCool = 0;
-            move.x = Random.Range(-0.005f, 0.005f);
-            move.y = Random.Range(-0.005f, 0.005f);
-        }
-        transform.position=new Vector3(transform.position.x+move.x,
-             transform.position.y+move.y, transform.position.z);
+        //homingVec.x = playerTransform.position.x - transform.position.x;
+        //homingVec.y = playerTransform.position.y - transform.position.y;
+        //homingVec.z = playerTransform.position.z - transform.position.z;
+        //homingVec.Normalize();
+
+        //transform.position = 
+        //    new Vector3(transform.position.x + homingVec.x * moveSpeed,
+        //    transform.position.y + homingVec.y * moveSpeed,
+        //    transform.position.z + homingVec.z * moveSpeed);
+
         if (enemyHp <= 0)
         {
             Destroy(gameObject);
@@ -37,5 +40,14 @@ public class Enemy : MonoBehaviour
     {
         enemyHp -= 1;
         Debug.Log(enemyHp);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.GetComponent<PlayerMove>().Damage();
+            Destroy(gameObject);
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float time = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,13 @@ public class Bullet : MonoBehaviour
         pos.z += 0.05f;
         transform.position = new Vector3(pos.x, pos.y, pos.z);
 
-        if (pos.z >= 20) Destroy(this.gameObject);
+        //ŠÔ§ŒÀ‚ª—ˆ‚½‚ç©‘RÁ–Å
+        time -= Time.deltaTime;
+        if (time <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
