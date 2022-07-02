@@ -19,20 +19,29 @@ public class EnemyBullet : MonoBehaviour
     //enemy—p•Ï”
     protected GameObject enemy;
 
+    private GManager gameManager;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (/*other.gameObject.tag=="Player"|| other.gameObject.tag == "PlayerBody"*/other.gameObject.tag!="Enemy"&&other.gameObject.tag!="EnemyBullet")
+        if (/*other.gameObject.tag=="Player"|| other.gameObject.tag == "PlayerBody"*/
+            other.gameObject.tag!="Enemy"&&other.gameObject.tag!="EnemyBullet")
         {
-            //other.GetComponent<PlayerMove>().Damage();
-            Destroy(gameObject);
+            if (other.gameObject.tag == "Player")
+            {
+                other.GetComponent<PlayerMove>().Damage();
+            }
+                Destroy(gameObject);
         }
     }
     void Start()
     {
+        GetComponent<Renderer>().material.color = enemy.GetComponent<Renderer>().material.color;
+
         //rigidbody•Ï”‚ğ‰Šú‰»
         rb = this.GetComponent<Rigidbody>();
         //¶¬‚Éis•ûŒü‚ğŒˆ‚ß‚é
         if (enemy != null) forward = enemy.transform.forward;
+        
     }
 
     // Update is called once per frame

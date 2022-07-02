@@ -18,10 +18,10 @@ public class Camera : MonoBehaviour
         //transform.rotation = new Quaternion(transform.rotation.x,
         //    playerTransform.rotation.y, transform.rotation.z, transform.rotation.w);
 
-        transform.position = new Vector3(
-            playerTransform.position.x,
-            playerTransform.position.y +1f,
-            playerTransform.position.z + 0.1f
-                );
+        //transform.position = new Vector3(
+        //    playerTransform.position.x,
+        //    transform.position.y,
+        //    playerTransform.position.z
+        //        );
     }
 }

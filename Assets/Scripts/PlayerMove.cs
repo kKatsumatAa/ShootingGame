@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
     float angleSpeed;
-    public int playerHp;
+    public int playerHp=5;
+    //playerHP
+    public Text textComponent2;
     // Start is called before the first frame update
     void Start()
     {
-        playerHp = 5;
+        
     }
 
     // Update is called once per frame
@@ -17,10 +20,10 @@ public class PlayerMove : MonoBehaviour
     {
         Vector3 pos=transform.position;
         const float speed = 0.02f;
-        if (Input.GetKey(KeyCode.D)) pos.x += speed;
-        if (Input.GetKey(KeyCode.A)) pos.x -= speed;
-        if (Input.GetKey(KeyCode.W)) pos.z += speed;
-        if (Input.GetKey(KeyCode.S)) pos.z -= speed;
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) pos.x += speed;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) pos.x -= speed;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) pos.z += speed;
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) pos.z -= speed;
 
         transform.position = new Vector3(pos.x, pos.y, pos.z);
 
@@ -31,16 +34,18 @@ public class PlayerMove : MonoBehaviour
 
         //transform.rotation = new Quaternion(transform.rotation.x,
         //    transform.rotation.y + angleSpeed, transform.rotation.z, transform.rotation.w);
+        textComponent2.text = "HP:" + playerHp;
 
-        if(playerHp<=0)
+        if (playerHp<=0)
         {
             Debug.Log("LOSE");
+            Destroy(gameObject);
         }
     }
 
     public void Damage()
     {
         playerHp -= 1;
-        //Debug.Log(playerHp);
+        
     }
 }

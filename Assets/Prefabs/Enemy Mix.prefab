@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3499834082849771476}
   - component: {fileID: 3499834082849771483}
   - component: {fileID: 3499834082849771482}
-  - component: {fileID: 4020203210722581686}
+  - component: {fileID: 3926537719687832518}
+  - component: {fileID: 8457137615658512993}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Mix
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3cfa224dbc6edc346a62e10f76a0ef79, type: 2}
+  - {fileID: 2100000, guid: d1677cd128b453540a84cb441103f802, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,7 +130,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4020203210722581686
+--- !u!114 &3926537719687832518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499834082849771481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f145b6ed386ada140b02cede68a6e415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3861050168988149046, guid: a38b4d4bff9a4dd42b2fa4f06fbfecb9, type: 3}
+  bulletWayNum: 5
+  bulletWaySpace: 50
+  time: 3
+  delayTime: 1
+--- !u!114 &8457137615658512993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3861050168988149046, guid: a38b4d4bff9a4dd42b2fa4f06fbfecb9, type: 3}
+  time: 1

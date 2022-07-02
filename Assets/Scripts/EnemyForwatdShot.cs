@@ -9,7 +9,7 @@ public class EnemyForwatdShot : MonoBehaviour
     //弾のゲームオブジェクトを入れる
     public GameObject bullet;
     //打ち出す感覚
-    public const float time = 1.0f;
+    public float time = 1.0f;
     //最初に打ち出すまでの時間を決める
     public const float delayTime = 0.7f;
     //現在のタイマー時間

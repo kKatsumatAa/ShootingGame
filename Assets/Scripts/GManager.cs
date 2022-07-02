@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GManager : MonoBehaviour
 {
@@ -8,6 +9,12 @@ public class GManager : MonoBehaviour
     private GameObject[] enemy;
     //パネルを登録
     public GameObject panel;
+    //敵残り
+    public Text textComponent;
+    
+
+    //int playerHP = 5;
+    int enemyNokori = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +28,11 @@ public class GManager : MonoBehaviour
     {
         //シーンに存在しているEnemyタグを持っているオブジェクトを全て入れる
         enemy = GameObject.FindGameObjectsWithTag("Enemy");
+
+        enemyNokori=enemy.Length;
+
+        textComponent.text = "敵残り:" + enemyNokori;
+        
 
         //シーンに一体もenemyがいなくなったら
         if(enemy.Length==0)

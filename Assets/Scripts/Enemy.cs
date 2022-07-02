@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public Transform playerTransform;
     private Vector3 homingVec=new Vector3(0,0,0);
     private float moveSpeed = 0.005f;
+
+    private GManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
