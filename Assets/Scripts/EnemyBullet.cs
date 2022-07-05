@@ -19,31 +19,47 @@ public class EnemyBullet : MonoBehaviour
     //enemy用変数
     protected GameObject enemy;
 
-    private GManager gameManager;
+    private GameManager gameManager;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (/*other.gameObject.tag=="Player"|| other.gameObject.tag == "PlayerBody"*/
-            other.gameObject.tag!="Enemy"&&other.gameObject.tag!="EnemyBullet")
-        {
-            if (other.gameObject.tag == "Player")
-            {
-                other.GetComponent<PlayerMove>().Damage();
-            }
-                Destroy(gameObject);
-        }
-    }
+   
     void Start()
     {
-        GetComponent<Renderer>().material.color = enemy.GetComponent<Renderer>().material.color;
-
+        if (enemy != null)
+        {
+            GetComponent<Renderer>().material.color = enemy.GetComponent<Renderer>().material.color;
+        }
         //rigidbody変数を初期化
         rb = this.GetComponent<Rigidbody>();
         //生成時に進行方向を決める
-        if (enemy != null) forward = enemy.transform.forward;
-        
-    }
+        if (enemy != null)
+        {
+            forward = enemy.transform.forward;
+        }
+        //ゲームオブジェクトを探して変数に控えておく
+        GameObject managerObject = GameObject.Find("GameManager");
+        //
+        gameManager = managerObject.GetComponent<GameManager>();
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (enemy != null)
+        {
+            if (enemy.transform.position.z > gameManager.GetComponent<GameManager>().enemyPosZ)
+            {
+                Destroy(gameObject);
+            }
+        }
+        if (/*other.gameObject.tag=="Player"|| other.gameObject.tag == "PlayerBody"*/
+            other.gameObject.tag != "Enemy" && other.gameObject.tag != "EnemyBullet")
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                gameManager.Damage();
+            }
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

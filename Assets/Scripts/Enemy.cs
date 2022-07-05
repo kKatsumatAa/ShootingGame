@@ -11,13 +11,29 @@ public class Enemy : MonoBehaviour
     private Vector3 homingVec=new Vector3(0,0,0);
     private float moveSpeed = 0.005f;
 
-    private GManager gameManager;
+    private GameManager gameManager;
+
+    //敵ごとのスコア
+    public int enemyScore;
+
+    public int waveNum = 0;
+
+    //public float emergeTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        //if (emergeTime > 0)
+        //{
+        //    gameObject.SetActive(false);
+        //}
         enemyHp = 3;
-        
+
+        //ゲームオブジェクトを探して変数に控えておく
+        GameObject managerObject = GameObject.Find("GameManager");
+        //
+        gameManager = managerObject.GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -35,8 +51,16 @@ public class Enemy : MonoBehaviour
 
         if (enemyHp <= 0)
         {
+            gameManager.AddScore(enemyScore);
             Destroy(gameObject);
         }
+
+        //emergeTime -=Time.deltaTime;
+
+        //if(emergeTime <= 0)
+        //{
+        //    gameObject.SetActive(true);
+        //}
     }
 
     public void Damage()
@@ -49,7 +73,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<PlayerMove>().Damage();
+            gameManager.Damage();
             Destroy(gameObject);
         }
     }

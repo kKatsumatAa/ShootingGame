@@ -30,10 +30,13 @@ public class EnemyWayShot : MonoBehaviour
         if(nowTime <= 0)
         {
             float bulletWaySpaceSplit = 0;//Šp“x’²®—p
-            for(int i = 0; i < bulletWayNum; i++)
+            for (int i = 0; i < bulletWayNum; i++)
             {//’e¶¬
-                CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + transform.localEulerAngles.y); ;
-                bulletWaySpaceSplit += (bulletWaySpace / (bulletWayNum - 1)) * 2;
+                if (transform.position.z <= GameObject.Find("GameManager").GetComponent<GameManager>().enemyPosZ)
+                {
+                    CreateShotObject(bulletWaySpace - bulletWaySpaceSplit + transform.localEulerAngles.y); ;
+                    bulletWaySpaceSplit += (bulletWaySpace / (bulletWayNum - 1)) * 2;
+                }
             }
             nowTime = time;
         }

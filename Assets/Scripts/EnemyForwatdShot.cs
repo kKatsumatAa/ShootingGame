@@ -15,11 +15,14 @@ public class EnemyForwatdShot : MonoBehaviour
     //現在のタイマー時間
     float nowTime = 0;
 
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         //タイマー初期化
         nowTime = delayTime;
+
     }
 
     // Update is called once per frame
@@ -36,9 +39,11 @@ public class EnemyForwatdShot : MonoBehaviour
         //もしタイマーが0以下になったら
         if(nowTime <= 0)
         {
-            //弾を生成
-            CreateShotObject(-transform.localEulerAngles.y);
-            //タイマー初期化
+            if (transform.position.z <= GameObject.Find("GameManager").GetComponent<GameManager>().enemyPosZ)
+            {
+                //弾を生成
+                CreateShotObject(-transform.localEulerAngles.y);
+            }//タイマー初期化
             nowTime = time;
         }
     }

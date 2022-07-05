@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 0
   playerTransform: {fileID: 0}
+  enemyScore: 1000
+  waveNum: 0
 --- !u!54 &3499834082849771482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3861050168988149046, guid: a38b4d4bff9a4dd42b2fa4f06fbfecb9, type: 3}
-  bulletWayNum: 5
+  bulletWayNum: 8
   bulletWaySpace: 50
   time: 3
   delayTime: 1

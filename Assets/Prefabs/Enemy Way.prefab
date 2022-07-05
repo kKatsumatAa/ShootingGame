@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 0
   playerTransform: {fileID: 0}
+  enemyScore: 500
+  waveNum: 0
 --- !u!54 &3499834082849771482
 Rigidbody:
   m_ObjectHideFlags: 0

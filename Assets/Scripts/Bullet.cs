@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float time = 1;
+    public float time = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +16,12 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        pos.z += 0.05f;
+        pos.z += 0.5f;
         transform.position = new Vector3(pos.x, pos.y, pos.z);
 
         //éûä‘êßå¿Ç™óàÇΩÇÁé©ëRè¡ñ≈
         time -= Time.deltaTime;
-        if (time <= 0)
+        if (time <= 0||transform.position.z>=14)
         {
             Destroy(this.gameObject);
         }
